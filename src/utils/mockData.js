@@ -1,33 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-/**
- * Header
- * - logo
- * - nav items
- * Body
- * - serach bar
- * - cards
- * Footer
- * - copyright
- * - links
- * - disclaimer
- */
-
-const Header = () => {
-  return (
-    <div className="Header">
-      <div className="logo">
-        <img src="/logo.png" />
-      </div>
-      <ul className="nav-items">
-        <li>Home</li>
-        <li>About</li>
-        <li>Cart</li>
-      </ul>
-    </div>
-  );
-};
 const restList =  [
     {
       info: {
@@ -92,13 +62,6 @@ const restList =  [
         },
         ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
         priceComparisonComms: {},
-      },
-      analytics: {
-        context: "seo-data-1d1b34b8-39ed-401a-a5ca-c845efcd8ca0",
-      },
-      cta: {
-        link: "https://www.swiggy.com/city/bangalore/pizza-hut-sampige-road-malleshwaram-rest10591",
-        type: "WEBLINK",
       },
     },
     {
@@ -193,13 +156,6 @@ const restList =  [
         },
         ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
         priceComparisonComms: {},
-      },
-      analytics: {
-        context: "seo-data-1d1b34b8-39ed-401a-a5ca-c845efcd8ca0",
-      },
-      cta: {
-        link: "https://www.swiggy.com/city/bangalore/blue-tokai-coffee-roasters-sadhashiv-nagar-sadashiva-nagar-rest726204",
-        type: "WEBLINK",
       },
     },
     {
@@ -1925,44 +1881,5 @@ const restList =  [
         type: "WEBLINK",
       },
     },
-  ]
-const ResCard = (props) => {
-  const { restData } = props;
-  const {name, cuisines, avgRating, sla, cloudinaryImageId} = restData;
-    return (
-      <div className="res-card">
-        <img
-          className="res-card-image"
-          src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1600,h_640,c_fill/` + cloudinaryImageId}
-          alt="res-card"
-        />
-        <h3 className="res-name">{name}</h3>
-        <h5>{cuisines}</h5>
-        <h6>{avgRating}</h6>
-        <h6>{sla.deliveryTime}{"MINS"}</h6>
-      </div>
-    )
-};
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="res-container">
-        {restList?.map((res) => (
-          <ResCard key={res?.info?.id} restData={res?.info} />
-        ))}
-      </div>
-    </div>
-  );
-};
-const AppLayout = () => {
-  return (
-    <div className="app-layout">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
+]
+export default restList;

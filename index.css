@@ -42,3 +42,7 @@
 .res-name {
     font-weight: bold;
 }
+.filter-btn {
+    margin: 10px;
+    cursor: pointer;
+}
