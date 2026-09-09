@@ -1,13 +1,13 @@
 import  ResCard  from "../ResCard/ResCard";
 import  { useEffect, useState } from 'react';
 import Shimmer from "../Shimmer/Shimmer";
+import { Link } from "react-router-dom";
 const Body = () => {
   const [listOfRes, setListofRes] = useState([]);
   const [inputVal, setinputVal] = useState("");
   const [filteredRes, setFilteredRes] = useState([]);
 
   useEffect(() => {
-    console.log("use effect called");
     fetchData();
   }, []);
 
@@ -19,7 +19,6 @@ const Body = () => {
     setListofRes(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setFilteredRes(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
-    console.log('json', json);
   }
 
  
@@ -49,7 +48,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRes?.map((res) => (
-          <ResCard key={res?.info?.id} resData={res?.info} />
+          <Link  key={res?.info?.id} to={"/restaurants/" + res.info.id}><ResCard  resData={res?.info} /></Link>
         ))}
       </div>
     </div>
