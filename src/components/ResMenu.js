@@ -1,33 +1,14 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer/Shimmer";
 import { useParams } from "react-router-dom";
+import useResaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
 
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
+  const { resInfo } = useResaurantMenu();
 
-  const fetchMenu = () => {
-    const mockData = {
-      id: 1234,
-      name: "KFC",
-      cuisines: ["Burgers", "Fast Food", "Chicken"],
-      costForTwo: "₹400 for two",
-      menu: [
-        "Chicken Burger",
-        "Veg Burger",
-        "Chicken Biryani",
-        "French Fries",
-        "Pepsi",
-      ],
-    };
-
-    setResInfo(mockData);
-  };
 
   return resInfo === null ? (
     <Shimmer />

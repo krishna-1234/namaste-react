@@ -2,6 +2,8 @@ import  ResCard  from "../ResCard/ResCard";
 import  { useEffect, useState } from 'react';
 import Shimmer from "../Shimmer/Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../../utils/useOnlineStatus";
+
 const Body = () => {
   const [listOfRes, setListofRes] = useState([]);
   const [inputVal, setinputVal] = useState("");
@@ -21,7 +23,10 @@ const Body = () => {
 
   }
 
- 
+ const onlineStatus = useOnlineStatus();
+ if(!onlineStatus) {
+    return <h1>Looks like you're offline!!. Please check your internet connection...</h1>
+ }
   return  listOfRes.length === 0 ?  <Shimmer/> :
     <div className="body">
       <div className="filter">
