@@ -6,16 +6,16 @@ export const Header = () => {
 
 
   return (
-    <div className="Header">
-      <div className="logo">
-        <img src="/logo.png" />
+    <div className="flex justify-between shadow-lg">
+      <div className="m-2 p-2 items-center">
+        <img className="w-40" src="/logo.png" />
       </div>
-      <ul className="nav-items">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to ="/about">About</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
-        <li><Link to="/grocery">Grocery</Link></li>
-        <li>Cart</li>
+      <ul className="flex p-4 m-4 items-center">
+        <li className="px-4"><Link to="/">Home</Link></li>
+        <li className="px-4"><Link to ="/about">About</Link></li>
+        <li className="px-4"><Link to="/contact">Contact</Link></li>
+        <li className="px-4"><Link to="/grocery">Grocery</Link></li>
+        <li className="px-4">Cart</li>
         <button
           className="login"
           onClick={() =>
